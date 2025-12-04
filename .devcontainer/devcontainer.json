@@ -1,16 +1,12 @@
 {
-  "name": "Universal App Template",
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
-
-  "features": {
-    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
-  },
+  "name": "Universal JS Template",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:20",
 
   "forwardPorts": [3000, 4000, 5173, 8080],
   "portsAttributes": {
-    "3000": { "onAutoForward": "openBrowser", "label": "App Port 3000" },
+    "3000": { "onAutoForward": "openBrowser" },
     "4000": { "onAutoForward": "openBrowser" },
-    "5173": { "onAutoForward": "openBrowser", "label": "Vite" },
+    "5173": { "onAutoForward": "openBrowser" },
     "8080": { "onAutoForward": "openBrowser" }
   },
 
@@ -26,4 +22,3 @@
     }
   }
 }
-
