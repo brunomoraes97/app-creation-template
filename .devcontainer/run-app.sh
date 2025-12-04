@@ -3,7 +3,7 @@
 echo "[Universal Template] Starting auto-run script..."
 
 STACK=$(node .devcontainer/detect-stack.js)
-echo "[Universal Template] Stack detected: $STACK"
+echo "Stack detected: $STACK"
 
 if [ "$STACK" = "vite" ]; then
   npm run dev
@@ -25,16 +25,4 @@ if [ "$STACK" = "node" ]; then
   exit
 fi
 
-if [ "$STACK" = "docker" ]; then
-  bash .devcontainer/docker-run.sh
-  exit
-fi
-
-if [ "$STACK" = "dockerfile" ]; then
-  docker build -t app .
-  docker run -p 3000:3000 app
-  exit
-fi
-
 echo "[Universal Template] No known stack detected."
-
