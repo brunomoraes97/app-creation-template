@@ -1,22 +1,19 @@
 const fs = require("fs");
 
 function detect() {
-  if (fs.existsSync("docker-compose.yml")) return "docker";
-  if (fs.existsSync("Dockerfile")) return "dockerfile";
-
   if (fs.existsSync("package.json")) {
     const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"));
 
-    // Detecta Vite
+    // Detect Vite
     if (pkg.scripts?.dev?.includes("vite")) return "vite";
 
-    // Detecta Next.js
+    // Detect Next.js
     if (pkg.dependencies?.next) return "next";
 
-    // Detecta Express
+    // Detect Express
     if (pkg.dependencies?.express) return "express";
 
-    // Detecta Node genérico
+    // Generic Node project
     if (pkg.scripts?.start || pkg.scripts?.dev) return "node";
 
     return "node";
@@ -26,4 +23,3 @@ function detect() {
 }
 
 console.log(detect());
-
