@@ -1,0 +1,29 @@
+{
+  "name": "Universal App Template",
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+
+  "forwardPorts": [3000, 4000, 5173, 8080],
+  "portsAttributes": {
+    "3000": { "onAutoForward": "openBrowser", "label": "App Port 3000" },
+    "4000": { "onAutoForward": "openBrowser" },
+    "5173": { "onAutoForward": "openBrowser", "label": "Vite" },
+    "8080": { "onAutoForward": "openBrowser" }
+  },
+
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "postStartCommand": "bash .devcontainer/run-app.sh",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.copilot",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
+
